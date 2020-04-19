@@ -21,9 +21,7 @@ how configuration files are formatted, although YAML is
 recommended. A template of a model's configuration file
 with placeholder values is used by the BMI.
 """
-function initialize(model, config_file=nothing)
-    error("BMI function not implemented for ", typeof(model))
-end
+function initialize end
 
 """
     update(model)
@@ -36,9 +34,7 @@ state variables. If the model's state variables don't change in time,
 then they can be computed by the :func:`initialize` method and this
 method can return with no action.
 """
-function update(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function update end
 
 """
     update_until(model, time)
@@ -47,9 +43,7 @@ Advance model state until the given time.
 
 The given `time` must be a model time later than the current model time.
 """
-function update_until(model, time)
-    error("BMI function not implemented for ", typeof(model))
-end
+function update_until end
 
 """
     finalize(model)
@@ -60,36 +54,28 @@ Perform all tasks that take place after exiting the model's time
 loop. This typically includes deallocating memory, closing files and
 printing reports.
 """
-function finalize(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function finalize end
 
 """
     get_component_name(model)
 
 Name of the component.
 """
-function get_component_name(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_component_name end
 
 """
     get_input_item_count(model)
 
 Count of a model's input variables.
 """
-function get_input_item_count(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_input_item_count end
 
 """
     get_output_item_count(model)
 
 Count of a model's output variables.
 """
-function get_output_item_count(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_output_item_count end
 
 """
     get_input_var_names(model)
@@ -107,9 +93,7 @@ framework to automatically connect components.
 
 Standard Names do not have to be used within the model.
 """
-function get_input_var_names(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_input_var_names end
 
 """
     get_output_var_names(model)
@@ -119,9 +103,7 @@ List of a model's output variables.
 Output variable names must be CSDMS Standard Names, also known
 as *long variable names*.
 """
-function get_output_var_names(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_output_var_names end
 
 """
     get_var_grid(model, name)
@@ -130,9 +112,7 @@ Get grid identifier integer for the given variable.
 
 The `name` can be an input or output variable name, a CSDMS Standard Name.
 """
-function get_var_grid(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_grid end
 
 """
     get_var_type(model, name)
@@ -141,9 +121,7 @@ Get data type of the given variable.
 
 The `name` can be an input or output variable name, a CSDMS Standard Name.
 """
-function get_var_type(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_type end
 
 """
     get_var_units(model, name)
@@ -164,9 +142,7 @@ The `name` can be an input or output variable name, a CSDMS Standard Name.
 CSDMS uses the [UDUNITS](http://www.unidata.ucar.edu/software/udunits)
 standard from Unidata.
 """
-function get_var_units(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_units end
 
 """
     get_var_itemsize(model, name)
@@ -175,9 +151,7 @@ Get memory use for each array element in bytes.
 
 The `name` can be an input or output variable name, a CSDMS Standard Name.
 """
-function get_var_itemsize(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_itemsize end
 
 """
     get_var_nbytes(model, name)
@@ -186,9 +160,7 @@ Get size, in bytes, of the given variable.
 
 The `name` can be an input or output variable name, a CSDMS Standard Name.
 """
-function get_var_nbytes(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_nbytes end
 
 """
     get_var_location(model, name)
@@ -214,36 +186,28 @@ The grid location on which the variable is defined. Must be one of
 CSDMS uses the [ugrid conventions](http://ugrid-conventions.github.io/ugrid-conventions)
 to define unstructured grids.
 """
-function get_var_location(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_var_location end
 
 """
     get_current_time(model)
 
 Current time of the model.
 """
-function get_current_time(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_current_time end
 
 """
     get_start_time(model)
 
 Start time of the model.
 """
-function get_start_time(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_start_time end
 
 """
     get_end_time(model)
 
 End time of the model.
 """
-function get_end_time(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_end_time end
 
 """
     get_time_units(model)
@@ -254,18 +218,14 @@ Time units of the model; e.g., `days` or `s`.
 CSDMS uses the [UDUNITS](http://www.unidata.ucar.edu/software/udunits)
 standard from Unidata.
 """
-function get_time_units(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_time_units end
 
 """
     get_time_step(model)
 
 Current time step of the model.
 """
-function get_time_step(model)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_time_step end
 
 """
     get_value(model, name, dest)
@@ -283,9 +243,7 @@ the return type, size and rank dependent on the variable.
 # Returns
 The same array that was passed as an input buffer.
 """
-function get_value(model, name, dest)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_value end
 
 """
     get_value_ptr(model, name)
@@ -300,9 +258,7 @@ The `name` can be an input or output variable name, a CSDMS Standard Name.
 
 Returns a reference to a model variable.
 """
-function get_value_ptr(model, name)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_value_ptr end
 
 """
     get_value_at_indices(model, name, dest, inds)
@@ -318,9 +274,7 @@ Get values at particular indices.
 array_like
     Value of the model variable at the given location.
 """
-function get_value_at_indices(model, name, dest, inds)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_value_at_indices end
 
 """
     set_value(model, name, value)
@@ -336,9 +290,7 @@ dependent on the variable.
 - `name`: An input or output variable name, a CSDMS Standard Name.
 - `value`: The new value for the specified variable.
 """
-function set_value(model, name, value)
-    error("BMI function not implemented for ", typeof(model))
-end
+function set_value end
 
 """
     set_value_at_indices(model, name, inds, value)
@@ -350,9 +302,7 @@ Specify a new value for a model variable at particular indices.
 - `inds`: The indices into the variable array.
 - `value`: The new value for the specified variable.
 """
-function set_value_at_indices(model, name, inds, value)
-    error("BMI function not implemented for ", typeof(model))
-end
+function set_value_at_indices end
 
 # Grid information
 
@@ -361,27 +311,21 @@ end
 
 Get number of dimensions of the computational grid.
 """
-function get_grid_rank(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_rank end
 
 """
     get_grid_size(model, grid)
 
 Get the total number of elements in the computational grid.
 """
-function get_grid_size(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_size end
 
 """
     get_grid_type(model, grid)
 
 Get the grid type as a string.
 """
-function get_grid_type(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_type end
 
 # Uniform rectilinear
 
@@ -390,9 +334,7 @@ end
 
 Get dimensions of the computational grid.
 """
-function get_grid_shape(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_shape end
 
 """
     get_grid_spacing(model, grid, spacing)
@@ -405,9 +347,7 @@ Get distance between nodes of the computational grid.
 
 Returns the filled `spacing` array.
 """
-function get_grid_spacing(model, grid, spacing)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_spacing end
 
 """
     get_grid_origin(model, grid, origin)
@@ -421,9 +361,7 @@ Get coordinates for the lower-left corner of the computational grid.
 
 Returns the filled `origin` array.
 """
-function get_grid_origin(model, grid, origin)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_origin end
 
 # Non-uniform rectilinear, curvilinear
 
@@ -438,9 +376,7 @@ Get coordinates of grid nodes in the x direction.
 
 Returns the filled `x` array.
 """
-function get_grid_x(model, grid, x)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_x end
 
 """
     get_grid_y(model, grid, y)
@@ -453,9 +389,7 @@ Get coordinates of grid nodes in the y direction.
 
 Returns the filled `y` array.
 """
-function get_grid_y(model, grid, y)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_y end
 
 """
     get_grid_z(model, grid, z)
@@ -468,36 +402,28 @@ Get coordinates of grid nodes in the z direction.
 
 Returns the filled `z` array.
 """
-function get_grid_z(model, grid, z)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_z end
 
 """
     get_grid_node_count(model, grid)
 
 Get the number of nodes in the grid.
 """
-function get_grid_node_count(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_node_count end
 
 """
     get_grid_edge_count(model, grid)
 
 Get the number of edges in the grid.
 """
-function get_grid_edge_count(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_edge_count end
 
 """
     get_grid_face_count(model, grid)
 
 Get the number of faces in the grid.
 """
-function get_grid_face_count(model, grid)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_face_count end
 
 """
     get_grid_edge_nodes(model, grid, edge_nodes)
@@ -513,9 +439,7 @@ Get the edge-node connectivity.
 
 Returns the filled `edge_nodes` array.
 """
-function get_grid_edge_nodes(model, grid, edge_nodes)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_edge_nodes end
 
 """
     get_grid_face_edges(model, grid, face_edges)
@@ -528,9 +452,7 @@ Get the face-edge connectivity.
 
 Returns the filled `face_edges` array.
 """
-function get_grid_face_edges(model, grid, face_edges)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_face_edges end
 
 """
     get_grid_face_nodes(model, grid, face_nodes)
@@ -545,9 +467,7 @@ Get the face-node connectivity.
 
 Returns the filled `face_nodes` array.
 """
-function get_grid_face_nodes(model, grid, face_nodes)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_face_nodes end
 
 """
     get_grid_nodes_per_face(model, grid, nodes_per_face)
@@ -560,8 +480,6 @@ Get the number of nodes for each face.
 
 Returns the filled `nodes_per_face` array.
 """
-function get_grid_nodes_per_face(model, grid, nodes_per_face)
-    error("BMI function not implemented for ", typeof(model))
-end
+function get_grid_nodes_per_face end
 
 end # module

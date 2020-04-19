@@ -2,9 +2,9 @@
 
 [Basic Model Interface](https://bmi.readthedocs.io/) (BMI) specification for the
 [Julia programming language](https://julialang.org/). This package contains all 41 functions
-required to implement the BMI 2.0 specification. Note that the functions defined here
-are intended as fallback functions that throw an error saying the function is not yet
-implemented for the given model type.
+that are part of the BMI 2.0 specification. These functions are declared without any
+methods, like so: `function initialize end`. They do have documentation that shows how they
+should be used.
 
 It is up to model specific implementations to extend the functions defined here, adding
 methods for their own model type, such as:
@@ -81,8 +81,6 @@ This specification is adopted from the [BMI 2.0 Python specification](https://gi
 Instead of Python's class methods, the Julia specification expects a `model` parameter
 as the first argument. Julia will dispatch to the right implementation based on the type
 of the `model` parameter.
-
-In the specification we don't use any type signatures to make sure we catch all calls.
 
 We do not apply the Julia convention to put a ! after mutating function names, to keep
 the function names consistent with the other languages.
