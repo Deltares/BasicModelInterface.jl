@@ -1,5 +1,7 @@
 # BasicModelInterface
 
+[![Build Status](https://github.com/Deltares/BasicModelInterface.jl/workflows/CI/badge.svg)](https://github.com/Deltares/BasicModelInterface.jl/actions) 
+
 [Basic Model Interface](https://bmi.readthedocs.io/) (BMI) specification for the
 [Julia programming language](https://julialang.org/). This package contains all 41 functions
 that are part of the BMI 2.0 specification. These functions are declared without any
