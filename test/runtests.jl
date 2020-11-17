@@ -2,7 +2,14 @@ using Test
 using BasicModelInterface
 const BMI = BasicModelInterface
 
+# dummy model structs to test the interface
 struct UnknownModel end
+
+struct KnownModel
+    waterlevel::Matrix{Float64}
+end
+
+struct MyModel end
 
 @testset "BasicModelInterface.jl" begin
 
@@ -15,10 +22,6 @@ struct UnknownModel end
 end
 
 @testset "some BMI implementation" begin
-    struct KnownModel
-        waterlevel::Matrix{Float64}
-    end
-
     function BMI.initialize(model::KnownModel)
         known_model.waterlevel[:] .= 0.0
     end
@@ -32,7 +35,6 @@ end
 @testset "interface functions are defined" begin
     # not necessarily correct parameters
     # only needed to verify that the function is defined, but does not have methods yet
-    struct MyModel end
     model = MyModel()
     time = 1.0
     name = "myparam"
