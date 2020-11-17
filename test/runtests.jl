@@ -2,11 +2,12 @@ using Test
 using BasicModelInterface
 const BMI = BasicModelInterface
 
+struct UnknownModel end
+
 @testset "BasicModelInterface.jl" begin
 
 @testset "no BMI implementation" begin
     # test expected errors for unknown model
-    struct UnknownModel end
     unknown_model = UnknownModel()
     @test_throws MethodError BMI.initialize(unknown_model)
     @test_throws MethodError BMI.initialize(unknown_model, "config_file")
