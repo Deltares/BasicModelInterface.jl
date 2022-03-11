@@ -12,8 +12,7 @@ It is up to model specific implementations to extend the functions defined here,
 methods for their own model type, such as:
 
 ```julia
-using BasicModelInterface
-const BMI = BasicModelInterface
+import BasicModelInterface as BMI
 
 # any type you created to represent your model
 struct MyModel end
@@ -23,7 +22,7 @@ function BMI.update(model::MyModel)
 end
 ```
 
-This package is not yet registered, and is currently being developed independently of
+This package is currently being developed independently of
 [Community Surface Dynamics Modeling System](https://csdms.colorado.edu/wiki/Main_Page)(CSDMS).
 After it has been proven successful with several Julia BMI implementations, we should
 consider proposing CSDMS adoption as well, to join the existing C, C++, Fortran and Python
