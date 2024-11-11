@@ -40,9 +40,8 @@ method can return with no action.
 
 # Returns
 nothing
-    The BMI model control functions 'update', 'update_until' and
-    'finalize' should modify the model object in-place, and
-    explicitly return nothing.
+    The BMI model control functions (except initialize) should
+    modify the model object in-place, and explicitly return nothing.
 """
 function update end
 
@@ -52,6 +51,11 @@ function update end
 Advance model state until the given time.
 
 The given `time` must be a model time later than the current model time.
+
+# Returns
+nothing
+    The BMI model control functions (except initialize) should
+    modify the model object in-place, and explicitly return nothing.
 """
 function update_until end
 
@@ -63,6 +67,12 @@ Perform tear-down tasks for the model.
 Perform all tasks that take place after exiting the model's time
 loop. This typically includes deallocating memory, closing files and
 printing reports.
+
+# Returns
+nothing
+    The BMI model control functions (except initialize) should
+    modify the model object in-place, and explicitly return nothing.
+
 """
 function finalize end
 
