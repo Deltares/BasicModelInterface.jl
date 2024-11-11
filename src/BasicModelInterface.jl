@@ -14,6 +14,12 @@ inputs are read from a text-based configuration file, specified by
 config_file : str, optional
     The path to the model configuration file.
 
+# Returns
+nothing
+    All BMI model control functions (initialize, update, 
+    update_until and finalize) should modify the model object
+    in-place, and explicitly return nothing.
+
 # Notes
 Models should be refactored, if necessary, to use a
 configuration file. CSDMS does not impose any constraint on
