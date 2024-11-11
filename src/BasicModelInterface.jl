@@ -11,14 +11,12 @@ inputs are read from a text-based configuration file, specified by
 `config_file`.
 
 # Arguments
+model: the type of the struct representing your model.
 config_file : str, optional
     The path to the model configuration file.
 
 # Returns
-nothing
-    All BMI model control functions (initialize, update, 
-    update_until and finalize) should modify the model object
-    in-place, and explicitly return nothing.
+The initialized model struct.
 
 # Notes
 Models should be refactored, if necessary, to use a
@@ -39,6 +37,12 @@ time loop. This typically includes incrementing all of the model's
 state variables. If the model's state variables don't change in time,
 then they can be computed by the :func:`initialize` method and this
 method can return with no action.
+
+# Returns
+nothing
+    The BMI model control functions 'update', 'update_until' and
+    'finalize' should modify the model object in-place, and
+    explicitly return nothing.
 """
 function update end
 
