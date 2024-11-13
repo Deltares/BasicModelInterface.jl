@@ -18,6 +18,17 @@ config_file : str, optional
 # Returns
 The initialized model struct.
 
+# Example 
+If your model struct is named `MyModel`, you can implement this
+in the following way:
+```julia
+function BMI.initialize(m::Type{MyModel}, config_file)::MyModel
+    ...
+    model = MyModel(...)
+    return model
+end
+```
+
 # Notes
 Models should be refactored, if necessary, to use a
 configuration file. CSDMS does not impose any constraint on
