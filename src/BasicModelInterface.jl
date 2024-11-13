@@ -22,12 +22,14 @@ The initialized model struct.
 If your model struct is named `MyModel`, you can implement this
 in the following way:
 ```julia
-function BMI.initialize(model::Type{MyModel}, config_file)::MyModel
-    ..
-    m = model(...)
+function BMI.initialize(::Type{MyModel}, config_file)::MyModel
+    ...
+    m = MyModel(...)
     return m
 end
 ```
+Note that the first argument is only used to ensure that the
+desired method is executed when the function is applied.
 
 # Notes
 Models should be refactored, if necessary, to use a
