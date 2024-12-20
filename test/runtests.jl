@@ -15,21 +15,18 @@ struct MyModel end
 
 @testset "no BMI implementation" begin
     # test expected errors for unknown model
-    unknown_model = UnknownModel()
-    @test_throws MethodError BMI.initialize(unknown_model)
-    @test_throws MethodError BMI.initialize(unknown_model, "config_file")
-    @test_throws MethodError BMI.initialize(unknown_model, "config_file", "one_too_many")
+    @test_throws MethodError BMI.initialize(UnknownModel)
+    @test_throws MethodError BMI.initialize(UnknownModel, "config_file")
+    @test_throws MethodError BMI.initialize(UnknownModel, "config_file", "one_too_many")
 end
 
 @testset "some BMI implementation" begin
-    function BMI.initialize(model::KnownModel)
-        known_model.waterlevel[:] .= 0.0
+    function BMI.initialize(model::Type{KnownModel})
+        KnownModel(ones(3, 4))
     end
 
-    known_model = KnownModel(ones(3, 4))
+    known_model = BMI.initialize(KnownModel)
     @test all(isone, known_model.waterlevel)
-    BMI.initialize(known_model)
-    @test all(iszero, known_model.waterlevel)
 end
 
 @testset "interface functions are defined" begin
