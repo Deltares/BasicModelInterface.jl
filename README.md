@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/Deltares/BasicModelInterface.jl/workflows/CI/badge.svg)](https://github.com/Deltares/BasicModelInterface.jl/actions) 
 
-[Basic Model Interface](https://bmi.readthedocs.io/) (BMI) specification for the
+[Basic Model Interface](https://bmi.csdms.io/en/stable/) (BMI) specification for the
 [Julia programming language](https://julialang.org/). This package contains all 41 functions
 that are part of the BMI 2.0 specification. These functions are declared without any
 methods, like so: `function initialize end`. They do have documentation that shows how they
@@ -17,7 +17,7 @@ import BasicModelInterface as BMI
 # any type you created to represent your model
 struct MyModel end
 
-function BMI.update(model::MyModel)
+function BMI.update(model::MyModel)::Nothing
     # write MyModel update implementation here
 end
 ```
@@ -30,7 +30,7 @@ specifications.
 
 ## Summary of BMI functions
 
-Table below taken from https://bmi.readthedocs.io/en/latest/#the-basic-model-interface.
+Table below taken from https://bmi.csdms.io/en/stable/bmi.spec.html.
 
 Function                | Description
 ------------------------|----------------------------------------------------------
@@ -96,7 +96,7 @@ yet still convert to the right `Int64`, `Float64`, `String`, etc.
 `get_grid_shape`: Instead of passing in a `Vector` to fill, do not require a shape argument,
     and return a `Tuple`, like the `size` function.
 
-https://bmi.readthedocs.io/en/latest/bmi.best_practices.html#best-practices
+https://bmi.csdms.io/en/stable/bmi.best_practices.html
 
 > Constructs and features that are natural for the language should be used when implementing
 a BMI. BMI strives to be developer-friendly.
@@ -106,7 +106,7 @@ from row/column-major indexing when coupling models written in different languag
 developer's responsibility to ensure that array information is flattened/redimensionalized
 in the correct order.
 
-From the above and the [get_grid_shape](https://bmi.readthedocs.io/en/latest/#get-grid-shape)
+From the above and the [get_grid_shape](https://bmi.csdms.io/en/stable/bmi.grid_funcs.html#get-grid-shape)
 docs it is not quite clear yet what the correct order is. Flattening a row-array and a
 column-major array will result in the same size but different order array.
 
